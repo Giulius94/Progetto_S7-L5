@@ -16,7 +16,7 @@ class AttivitaController extends Controller
         /* return attivita::with('oraris', 'prenotazionis', 'users')->get(); */
         return view('attivita', ['attivita' => attivita::with('oraris', 'prenotazionis', 'users')->get()]);
     }
-
+    
     /**
      * Show the form for creating a new resource.
      */
