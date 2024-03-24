@@ -21,7 +21,7 @@ class PrenotazioniController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**

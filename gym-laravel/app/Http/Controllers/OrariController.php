@@ -13,7 +13,7 @@ class OrariController extends Controller
      */
     public function index()
     {
-        //
+        return orari::with('prenotazionis')->get();
     }
 
     /**

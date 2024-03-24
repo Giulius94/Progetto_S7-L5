@@ -23,9 +23,9 @@ class PrenotazioniFactory extends Factory
 
         return [
             //
-            'stato' => fake()->randomElement($stato),
+           
             'attivita_id' => attivita::get()->random()->id,
-            'orari_id' => orari::get()->random()->id,
+            'orari_id' => orari::get()->random()->id
         ];
     }
 }

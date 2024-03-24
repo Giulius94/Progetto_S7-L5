@@ -13,7 +13,8 @@ class AttivitaController extends Controller
      */
     public function index()
     {
-        //
+        /* return attivita::with('oraris', 'prenotazionis', 'users')->get(); */
+        return view('attivita', ['attivita' => attivita::with('oraris', 'prenotazionis', 'users')->get()]);
     }
 
     /**
@@ -37,7 +38,7 @@ class AttivitaController extends Controller
      */
     public function show(attivita $attivita)
     {
-        //
+        return view('detail', ['attivita' => attivita::with('oraris', 'prenotazionis', 'users')->get()]);
     }
 
     /**

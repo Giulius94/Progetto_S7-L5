@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('prenotazionis', function (Blueprint $table) {
             $table->id();
-            $table->string('stato');
+            $table->string('stato')->nullable();
             $table->foreignId('attivita_id');
             $table->foreignId('orari_id');      
              $table->foreign('attivita_id')->references('id')->on('attivitas')
