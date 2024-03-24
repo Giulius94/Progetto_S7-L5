@@ -36,9 +36,12 @@ class AttivitaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(attivita $attivita)
+    public function show(attivita $attivita, $id)
     {
-        return view('detail', ['attivita' => attivita::with('oraris', 'prenotazionis', 'users')->get()]);
+        
+    $attivita = attivita::findOrFail($id);
+    
+    return view('detail', ['attivita' => $attivita]);
     }
 
     /**

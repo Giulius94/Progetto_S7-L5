@@ -1,4 +1,5 @@
 @extends('layouts.layout')
+<?php var_dump($attivita) ?>
 @section('content')
 <div class="card mb-3">
   <div class="row g-0">
@@ -7,10 +8,10 @@
     </div>
     <div class="col-md-8">
       <div class="card-body">
-          <h5 class="card-title">Nome Attività :{{$attivita[0]->name}}</h5>
-                                <p class="card-text">ID Attività :{{$attivita[0]->id}}</p>
-                                <p class="card-text">Descrizione attivita :{{$attivita[0]->description}}</p>
-                                <p class="card-text">Attivo nella nostra palestra dal : {{$attivita[0]->created_at->format('Y-m-d')}}</p></p>
+          <h5 class="card-title">Nome Attività :{{$attivita->name}}</h5>
+                                <p class="card-text">ID Attività :{{$attivita->id}}</p>
+                                <p class="card-text">Descrizione attivita :{{$attivita->description}}</p>
+                                <p class="card-text">Attivo nella nostra palestra dal : {{$attivita->created_at}}</p></p>
       </div>
     </div>
   </div>
