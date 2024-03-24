@@ -22,10 +22,10 @@
                                 <p class="card-text">Prenotazioni : {{$prenotazioni->id}}</p>
                                 @endforeach--}}
 
-                                @foreach ($value->users as $user)
+                                {{--@foreach ($value->users as $user)
                                 <p class="card-text">Iscritti prenotati : {{$user->name}}</p>
                             
-                                @endforeach
+                                @endforeach--}}
                                 <a type="button" href="" class="btn btn-info">Prenota</a>
                                 <a type="button" href="/attivita/{{$value->id}}" class="btn btn-info">Dettaglio</a>
                             </div>
