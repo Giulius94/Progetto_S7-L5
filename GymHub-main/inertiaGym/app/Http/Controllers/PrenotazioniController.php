@@ -16,7 +16,8 @@ class PrenotazioniController extends Controller
      */
     public function index()
     {
-        
+        return Inertia::render('Prenotazioni/GestionePrenotazioni', ['prenotazioni' => prenotazioni::get(), 'user' => Auth::user()]);
+
     }
 
     /**

@@ -64,7 +64,7 @@ export default function Authenticated({ user, header, children }) {
                             </div>
                             <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                                 <NavLink href={route('prenotazioni.index')} active={route().current('preonotazioni')}>
-                                    Le tue prenotazioni
+                                    Gestione Prenotazioni
                                 </NavLink>
                             </div>
                         </div>
