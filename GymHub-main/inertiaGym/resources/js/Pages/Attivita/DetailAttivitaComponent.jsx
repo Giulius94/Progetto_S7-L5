@@ -10,6 +10,15 @@ import { ArrowLeftCircleFill } from 'react-bootstrap-icons';
 export default function DetailAttivitaComponent({ attivita, user }) {
 
   console.log(attivita)
+  console.log(user)
+  console.log(attivita.prenotazionis)
+  console.log(attivita.prenotazionis.length)
+  console.log(attivita.prenotazionis.stato)
+  console.log(user.attivita_id)
+  console.log(user.prenotazioni_id)
+  console.log(attivita.prenotazionis.id)
+
+ 
 
   const { post, progress } = useForm({
     stato: 'prenotato',
@@ -39,7 +48,7 @@ export default function DetailAttivitaComponent({ attivita, user }) {
               {attivita.description}
             </Card.Text>
           </Card.Body>
-          {attivita.prenotazionis && attivita.prenotazionis.length > 0 && attivita.prenotazionis[0].stato === 'prenotato' && user.attivita_id === attivita.id ? (
+          {user.attivita_id !== null && user.attivita_id === attivita.id ? (
             <button className='btn btn-secondary' disabled>Già Prenotato</button>
           ) : (
             attivita.oraris.map((oraris) => (

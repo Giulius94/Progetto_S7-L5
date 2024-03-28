@@ -22,6 +22,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/attivita/create', [\App\Http\Controllers\AttivitaController::class, 'create'])->middleware(['auth', 'verified'])->name('attivita.create');
     Route::get('/prenotazioni/create', [\App\Http\Controllers\PrenotazioniController::class, 'create'])->middleware(['auth', 'verified'])->name('prenotazioni.create');
     Route::post('/prenotazioni', [\App\Http\Controllers\PrenotazioniController::class, 'store'])->middleware(['auth', 'verified'])->name('prenotazioni.store');
+    Route::delete('/attivita/{id}', [\App\Http\Controllers\AttivitaController::class, 'destroy'])->middleware(['auth', 'verified'])->name('attivita.destroy');
     Route::post('/attivita', [\App\Http\Controllers\AttivitaController::class, 'store'])->middleware(['auth', 'verified'])->name('attivita.store');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
