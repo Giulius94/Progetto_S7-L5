@@ -9,7 +9,7 @@ import { ArrowLeftCircleFill } from 'react-bootstrap-icons';
 
 export default function DetailAttivitaComponent({ attivita, user }) {
 
-
+  console.log(attivita)
 
   const { post, progress } = useForm({
     stato: 'prenotato',
@@ -39,19 +39,22 @@ export default function DetailAttivitaComponent({ attivita, user }) {
               {attivita.description}
             </Card.Text>
           </Card.Body>
-          {attivita.oraris.map((oraris) => (
-            <div key={oraris.id} className='d-flex align-items-center justify-content-center my-4'>
-              <Card.Footer className="text-muted">Orario Attività : {oraris.orario_inizio} - {oraris.orario_fine}</Card.Footer>
-              <form onSubmit={submit}>
-                {progress && (
-                  <progress value={progress.percentage} max="100">
-                    {progress.percentage}%
-                  </progress>
-                )}
-                <button className='btn btn-primary' type="submit">Prenota</button>
-              </form>
-            </div>
-          ))}
+          {attivita.prenotazionis && attivita.prenotazionis.length > 0 && attivita.prenotazionis[0].stato === 'prenotato' && user.attivita_id === attivita.id ? (
+            <button className='btn btn-secondary' disabled>Già Prenotato</button>
+          ) : (
+            attivita.oraris.map((oraris) => (
+              <div key={oraris.id} className='d-flex align-items-center justify-content-center my-4'>
+                <Card.Footer className="text-muted">Orario Attività: {oraris.orario_inizio} - {oraris.orario_fine}</Card.Footer>
+                <form onSubmit={submit}>
+                  {progress && (
+                    <progress value={progress.percentage} max="100">{progress.percentage}%</progress>
+                  )}
+                  <button className='btn btn-primary' type="submit">Prenota</button>
+                </form>
+              </div>
+            ))
+          )}
+
         </Card>
       </Container>
     </AuthenticatedLayout>

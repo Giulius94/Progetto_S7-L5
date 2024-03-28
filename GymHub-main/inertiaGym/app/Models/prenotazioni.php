@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class prenotazioni extends Model
 {
     use HasFactory;
+    protected $fillable = ['stato', 'attivita_id', 'orari_id'];
 
     public function users(): HasMany {
         return $this->hasMany(User::class);

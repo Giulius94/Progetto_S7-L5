@@ -4,8 +4,8 @@ import { Card, Button, Container, Row, Col } from 'react-bootstrap';
 import { Link } from '@inertiajs/react';
 import CarouselSlider from '@/Layouts/CarouselSlider';
 
-export default function AttivitaComponent({ attivita, user, auth }) {
-
+export default function AttivitaComponent({ attivita, user}) {
+console.log(attivita)
     return (
         <AuthenticatedLayout user={user}
             header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Attività</h2>}
@@ -33,11 +33,6 @@ export default function AttivitaComponent({ attivita, user, auth }) {
                                     <Card.Text>{attivita.description}</Card.Text>
                                     {attivita.oraris && attivita.oraris.map((orari) => (
                                         <Card.Text key={orari.id}>{orari.orario_inizio}-{orari.orario_fine}</Card.Text>
-                                    ))}
-                                    <Card.Text>{attivita.pages}</Card.Text>
-                                    <Card.Text>{attivita.numcopies}</Card.Text>
-                                    {attivita.prenotazionis && attivita.prenotazionis.map((prenotazione) => (
-                                        <Card.Text key={prenotazione.id}>{prenotazione.stato}</Card.Text>
                                     ))}
                                     {attivita.users && attivita.users.map((user) => (
                                         <Card.Text key={user.id}>{user.name}</Card.Text>
