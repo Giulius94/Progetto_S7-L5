@@ -21,7 +21,7 @@ export default function DetailAttivitaComponent({ attivita, user }) {
  
 
   const { post, progress } = useForm({
-    stato: 'prenotato',
+    stato: 'in attesa',
     attivita_id: attivita.id,
     orari_id: attivita.oraris[0].id
   })

@@ -85,12 +85,16 @@ class AttivitaController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(attivita $attivita,$id)
-    {
-        $entity = attivita::find($id);
+    { $entity = attivita::find($id);
         if ($entity) {
             $entity->delete();
-            // In caso di successo, reindirizza con un messaggio o esegui un'altra azione appropriata
-            return to_route('attivita.index')->with('success', 'Entità eliminata con successo.');
+            
+            // Inserisci l'URL della pagina che elenca tutte le entità
+            // Assicurati che l'URL sia corretto per la tua applicazione
+            $url = route('attivita.index');
+    
+            // Forza il ricaricamento completo della pagina per visualizzare i cambiamenti
+            return Inertia::render($url);
         } else {
             // Gestisci il caso in cui l'entità non è stata trovata
             return redirect()->back()->withErrors(['error' => 'Entità non trovata.']);

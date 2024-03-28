@@ -3,8 +3,7 @@ import { Head } from '@inertiajs/react';
 
 export default function Dashboard({ auth }) {
 
-    console.log(auth.user);
-    console.log(auth);
+    
     return (
 
         <AuthenticatedLayout

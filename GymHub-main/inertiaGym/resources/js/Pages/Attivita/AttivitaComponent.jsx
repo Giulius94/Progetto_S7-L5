@@ -2,23 +2,25 @@ import React from 'react';
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Card, Button, Container, Row, Col } from 'react-bootstrap';
 import { Link } from '@inertiajs/react';
-import CarouselSlider from '@/Layouts/CarouselSlider';
 import { Trash2Fill } from 'react-bootstrap-icons';
 import { Inertia } from '@inertiajs/inertia';
 export default function AttivitaComponent({ attivita, user }) {
-  
+
     return (
-        
+
         <AuthenticatedLayout user={user}
             header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Attività</h2>}
         >
             <Container>
-                <CarouselSlider />
                 <Row className='my-2'>
                     <Col>
-                        <Link method="get" href='/attivita/create' className='d-flex justify-content-center my-3'>
-                            <Button variant="primary">Crea Nuova Attività</Button>
+                        {user.is_admin === 1 ? (
+                            <Link method="get" href='/attivita/create' className='d-flex justify-content-center my-3'>
+                            <Button variant="primary my-5">Crea Nuova Attività</Button>
                         </Link>
+                        ) : (
+                            <p></p>
+                        )}
                     </Col>
                 </Row>
 
