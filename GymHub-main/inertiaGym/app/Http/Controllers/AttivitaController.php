@@ -94,7 +94,7 @@ class AttivitaController extends Controller
             $url = route('attivita.index');
     
             // Forza il ricaricamento completo della pagina per visualizzare i cambiamenti
-            return Inertia::render($url);
+            return Inertia::location($url);
         } else {
             // Gestisci il caso in cui l'entità non è stata trovata
             return redirect()->back()->withErrors(['error' => 'Entità non trovata.']);
