@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\attivita;
 use App\Models\prenotazioni;
 use App\Http\Requests\StoreprenotazioniRequest;
 use App\Http\Requests\UpdateprenotazioniRequest;
+use Illuminate\Support\Facades\Auth;
+use Inertia\Inertia;
 
 class PrenotazioniController extends Controller
 {
@@ -21,7 +24,7 @@ class PrenotazioniController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -29,10 +32,29 @@ class PrenotazioniController extends Controller
      */
     public function store(StoreprenotazioniRequest $request)
     {
-        //
+        
+    $request->validate([
+        'stato' => 'required', 
+        'attivita_id' => 'required',
+        'orari_id' => 'required',
+        
+    ]);
+
+    // Crea una nuova prenotazione con i dati forniti più l'id dell'utente autenticato
+    $prenotazione = new prenotazioni([
+        'stato' => $request->input('stato'),
+        'attivita_id' => $request->input('attivita_id'),
+        'orari_id' => $request->input('orari_id'),
+    ]);
+
+    // Salva la prenotazione nel database
+    $prenotazione->save();
+
+    // Ritorna una risposta, ad esempio reindirizza o ritorna un JSON
+    return redirect()->route('percorso.dopo.prenotazione'); // Modifica con il tuo percorso desiderato
     }
 
-    /**
+    /*
      * Display the specified resource.
      */
     public function show(prenotazioni $prenotazioni)

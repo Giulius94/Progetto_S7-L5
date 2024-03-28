@@ -16,7 +16,7 @@ export default function Authenticated({ user, header, children }) {
         const settings = {
           dots: true, // Mostra i punti di navigazione sotto lo slider
           infinite: true, // Fa sì che lo slider ricominci da capo quando raggiunge la fine
-          speed: 1000, // Velocità di transizione tra le immagini
+          speed: 3000, // Velocità di transizione tra le immagini
           slidesToShow: 1, // Numero di slide da mostrare alla volta
           slidesToScroll: 1, // Numero di slide da scorrere sul click
           autoplay: true, // Abilita l'autoplay delle slide
@@ -24,17 +24,19 @@ export default function Authenticated({ user, header, children }) {
         };
       
         return (
-            <Slider {...settings}>
-            <div className='w-25 d-flex justify-content-center'>
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/React_Logo_SVG.svg/1200px-React_Logo_SVG.svg.png" className='w-25' alt="Immagine 1" />
+            
+            <Slider {...settings} className='mt-5'>
+            <div className='d-flex justify-content-center'>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/React_Logo_SVG.svg/1200px-React_Logo_SVG.svg.png" className='imgCarousel' alt="Immagine 1" />
             </div>
-            <div className='w-25 d-flex justify-content-center'>
-              <img src="https://www.teahub.io/photos/full/28-284379_photo-wallpaper-man-workout-gym-working-gym-workout.jpg" className='w-50' alt="Immagine 2" />
+            <div className='d-flex justify-content-center'>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Laravel.svg/1200px-Laravel.svg.png" className='imgCarousel' alt="Immagine 2" />
             </div>
-            <div className='w-25 d-flex justify-content-center'>
-              <img src="https://www.teahub.io/photos/full/28-284379_photo-wallpaper-man-workout-gym-working-gym-workout.jpg" className='w-50' alt="Immagine 3" />
+            <div className='d-flex justify-content-center'>
+              <img src="https://ayso32m5n.cloudimg.io/v7/https://web-id.fr/storage/articles%2Finertia-bg%201.png?width=500" className='imgCarousel rounded-circle' alt="Immagine 3" />
             </div>
           </Slider>
+          
         )
       }
     return (

@@ -1,14 +1,26 @@
 import React from 'react'
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Card, Container } from 'react-bootstrap';
-import { Link } from '@inertiajs/react';
-import {ArrowLeftCircleFill} from 'react-bootstrap-icons';
+import { Link, useForm } from '@inertiajs/react';
+import { ArrowLeftCircleFill } from 'react-bootstrap-icons';
 
 
 
 
 export default function DetailAttivitaComponent({ attivita, user }) {
-console.log(attivita);
+
+
+
+  const { post, progress } = useForm({
+    stato: 'prenotato',
+    attivita_id: attivita.id,
+    orari_id: attivita.oraris[0].id
+  })
+
+  function submit(e) {
+    e.preventDefault()
+    post('/prenotazioni')
+  }
   return (
     <AuthenticatedLayout user={user}
       header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Dettaglio Attività</h2>}
@@ -29,9 +41,16 @@ console.log(attivita);
           </Card.Body>
           {attivita.oraris.map((oraris) => (
             <div key={oraris.id} className='d-flex align-items-center justify-content-center my-4'>
-          <Card.Footer className="text-muted">Orario Attività : {oraris.orario_inizio} - {oraris.orario_fine}</Card.Footer>
-          <Link href='/attivita' as="button" type="button" className='btn btn-primary' >Prenota</Link>
-          </div>
+              <Card.Footer className="text-muted">Orario Attività : {oraris.orario_inizio} - {oraris.orario_fine}</Card.Footer>
+              <form onSubmit={submit}>
+                {progress && (
+                  <progress value={progress.percentage} max="100">
+                    {progress.percentage}%
+                  </progress>
+                )}
+                <button className='btn btn-primary' type="submit">Prenota</button>
+              </form>
+            </div>
           ))}
         </Card>
       </Container>

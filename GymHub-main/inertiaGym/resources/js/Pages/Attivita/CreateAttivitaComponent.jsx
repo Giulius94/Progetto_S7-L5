@@ -79,7 +79,6 @@ export default function CreateAttivitaComponent({ user }) {
                             {errors.end_date}
                         </Form.Control.Feedback>
                     </Form.Group>
-
                     <Form.Group className="mb-3">
                         <Form.Label>Orario di inizio</Form.Label>
                         <Form.Control 
